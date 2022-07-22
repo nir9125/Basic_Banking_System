@@ -1,0 +1,39 @@
+<%- include('partials/header'); -%>
+<div class="m6 mb-3 me-4 ms-4 d-flex justify-content-center ">
+    <h1>All Customers</h1>
+</div>
+
+    <table class="table table-striped css-serial table-hover bgColour ">
+        <thead >
+            <tr>
+                <th scope="col">S no.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Account Number</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% postdata.forEach((element)=>{ %>
+                <tr>
+                    <td></td>
+                    <td>
+                            <%= element.name %>
+                    </td>
+                    <td>
+                            <%= element._id %>
+                    </td>
+                    
+                    <td>
+                        &#x20B9;<%= element.left %>
+                    </td>
+                    <td>
+                        <a href="/post/<%= element._id %>">
+                            <button type="button" class="btn btn-outline-dark">View</button>
+                        </a>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+    <%- include('partials/footer'); -%>

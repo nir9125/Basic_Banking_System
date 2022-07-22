@@ -1,0 +1,41 @@
+<%- include('partials/header'); -%>
+
+
+    <h1 class="text-center m6 mb-3"> Detail</h1>
+    <p>
+        NAME : <%= name %>
+    </p>
+    <p>
+        ACCOUNT NUMBER : <%= payId %>
+    </p>
+
+    <p>
+        AMOUNT : &#x20B9;<%= lastTransfer %>
+    </p>
+    <p>
+        TRANSECTION TIME : <%= allupdatedTime %>
+    </p>
+    <p>
+        <% if (addedORnot===true ){ %>
+            <% if (sendFrom=="2v3h2g3v2hg3vh23v2h3v2h3v2hg3v2g3vh2" ){ %>
+                sendFrom : Manager
+                <% }else{ %>
+                    sendFrom : <%= sendFrom %>
+                        <% } %>
+                            <% } else{ %>
+                                sendFrom : <%= sendFrom %>
+                                    <% } %>
+
+    </p>
+    <p>
+        <% if (addedORnot == true){ %>
+            credit
+        <% } %>
+    </p>
+    <p>
+        TRANSFER ID : <%= newPayid %>
+    </p>
+
+
+    <a href="/post/<%= payId %>"><button type="button" class="btn btn-outline-dark">Back</button></a>
+    <%- include('partials/footer'); -%>

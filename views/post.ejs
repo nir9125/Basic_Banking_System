@@ -1,0 +1,130 @@
+<%- include('partials/header'); -%>
+    <div class="d-flex m6 justify-content-between">
+        <a href="/allcustumer"><button type="button" class="btn btn-outline-danger btn-lg">Back</button></a>
+        <h1 class="text-center  mb-3">Customer Detail</h1>
+        <% dataResult.forEach((element)=> { %>
+            <% if (new_postNow==element._id) { %>
+                <a href="/transferMoney/<%= element._id %>"><button type="button"
+                        class="btn btn-dark btn-lg">Pay</button></a>
+                <% }}); %>
+    </div>
+    <table class="table table-striped table-hover bgColour">
+        <thead>
+            <tr>
+                <th scope="col">Account No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Email</th>
+                <th scope="col">mobileNo</th>
+                <th scope="col">adhareNo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <% dataResult.forEach((element)=> { %>
+                    <% if (new_postNow==element._id) { %>
+                        <td>
+                            <%= element._id %>
+                        </td>
+                        <td class="text-capitalize">
+                            <%= element.name %>
+                        </td>
+                        <td>
+                            &#x20B9;<%= element.left %>
+                        </td>
+                        <td>
+                            <%= element.email %>
+                        </td>
+                        <td>
+                            <%= element.mobileNo %>
+                        </td>
+                        <td>
+                            <%= element.adhareNo %>
+                        </td>
+                        <% }}); %>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1 class="text-center mt-5 mb-4">All Transfer Detail</h1>
+    <table class="table table-striped css-serial table-hover bgColour">
+        <thead>
+            <tr>
+                <th scope="col">S no.</th>
+                <th scope="col">Transfered Amount</th>
+                <th scope="col">Debit</th>
+                <th scope="col">To Account</th>
+                <th scope="col">Credit</th>
+                <th scope="col">From Account</th>
+                <th scope="col">Time</th>
+                <th scope="col">view single transaction</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% dataResult.forEach((elemento)=> { %>
+                <% if (new_postNow==elemento._id) { %>
+                    <% var innerObject=elemento.totalInfo %>
+                        <% innerObject.forEach((element)=>{ %>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    &#x20B9;<%= element.lastTransfer %>
+                                </td>
+                                <td>
+                                    <% if (element.addedORnot===false ){ %>
+                                        <i class="fa-solid fa-circle-check " style="color: green;"></i>
+                                        <!-- <i class="fa-solid fa-circle-check " style="color: red;"></i> -->
+                                        <% } else{ %>
+                                            -----
+                                            <% } %>
+                                </td>
+                                <td>
+                                    <% if (element.addedORnot===false ){ %>
+                                        <% if (element.sendFrom=="2v3h2g3v2hg3vh23v2h3v2h3v2hg3v2g3vh2" ){ %>
+                                            Manager
+                                            <% }else{ %>
+                                                <%= element.sendFrom %>
+                                                    <% } %>
+                                                        <% } else{ %>
+                                                            -----
+                                                            <% } %>
+                                </td>
+                                <td>
+                                    <% if (element.addedORnot===true ){ %>
+                                        <!-- c -->
+                                        <i class="fa-solid fa-circle-check " style="color: green;"></i>
+                                        <% } else{ %>
+                                            -----
+                                            <% } %>
+                                </td>
+                                <td>
+                                    <% if (element.addedORnot===true ){ %>
+                                        <% if (element.sendFrom=="2v3h2g3v2hg3vh23v2h3v2h3v2hg3v2g3vh2" ){ %>
+                                            Manager
+                                            <% }else{ %>
+                                                <%= element.sendFrom %>
+                                                    <% } %>
+                                                        <% } else{ %>
+                                                            -----
+                                                            <% } %>
+                                </td>
+                                <td>
+                                    <%= element.allupdatedTime %>
+                                </td>
+                                <td>
+
+                                    <a href="/post/detail/<%= element._id %>/<%= elemento.id %>">
+                                        <button type="button" class="btn btn-outline-dark">View</button>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                                <% }}); %>
+        </tbody>
+    </table>
+    <% dataResult.forEach((elemento)=> { %>
+        <% if (new_postNow==elemento._id) { %>
+            <a href="/pay/<%= elemento._id %>"><button type="button" class="btn btn-outline-dark">Add from manager
+                    side</button></a>
+            <% }}) %>
+                <%- include('partials/footer'); -%>

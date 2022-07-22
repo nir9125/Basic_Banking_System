@@ -1,0 +1,80 @@
+<%- include('partials/header'); -%>
+
+    <h1 class="text-center m6 mb-3">View all custumer transfer</h1>
+
+    <div class="text-center mt-2 mb-3">
+        <a href="/manager"><button type="button" class="btn btn-outline-dark btn-lg">Back</button></a>
+    </div>
+
+    <table class="table table-striped css-serial table-hover bgColour">
+        <thead>
+            <tr>
+                <th scope="col">S no.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Transfered Amount</th>
+                <th scope="col">Debit</th>
+                <th scope="col">To Account</th>
+                <th scope="col">Credit</th>
+                <th scope="col">From Account</th>
+                <th scope="col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% dataResult.forEach((element)=> { %>
+                <!-- <% console.log(element) %> -->
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <%= element.name %>
+                                </td>
+                                <td>
+                                    &#x20B9;<%= element.lastTransfer %>
+                                </td>
+                                <td>
+                                    <% if (element.addedORnot===false ){ %>
+                                        <i class="fa-solid fa-circle-check " style="color: green;"></i>
+                                        <!-- <i class="fa-solid fa-circle-check " style="color: red;"></i> -->
+                                        <% } else{ %>
+                                            -----
+                                            <% } %>
+                                </td>
+                                <td>
+                                    <% if (element.addedORnot===false ){ %>
+                                        <% if (element.sendFrom=="2v3h2g3v2hg3vh23v2h3v2h3v2hg3v2g3vh2" ){ %>
+                                            Manager
+                                            <% }else{ %>
+                                                <%= element.sendFrom %>
+                                                    <% } %>
+                                                        <% } else{ %>
+                                                            -----
+                                                            <% } %>
+                                </td>
+                                <td>
+                                    <% if (element.addedORnot===true ){ %>
+                                        <i class="fa-solid fa-circle-check " style="color: green;"></i>
+                                        <% } else{ %>
+                                            -----
+                                            <% } %>
+                                </td>
+                                <td>
+                                    <% if (element.addedORnot===true ){ %>
+                                        <% if (element.sendFrom=="2v3h2g3v2hg3vh23v2h3v2h3v2hg3v2g3vh2" ){ %>
+                                            Manager
+                                            <% }else{ %>
+                                                <%= element.sendFrom %>
+                                                    <% } %>
+                                                        <% } else{ %>
+                                                            -----
+                                                            <% } %>
+                                </td>
+                                <td>
+                                    <%= element.allupdatedTime %>
+                                </td>
+                            
+                            </tr>
+                            <% }) %>
+        </tbody>
+    </table>
+
+
+    <%- include('partials/footer'); -%>

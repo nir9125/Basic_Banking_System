@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+<h1 class="text-center m6 mb-3">Create User</h1>
+    <form action="/custumer" method="post">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Write Name here" name="targetName">
+            <label for="floatingInput">Name</label>
+          </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Write Amount here" name="targetMoney">
+            <label for="floatingInput">Amount To Transfer</label>
+          </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Write Email here" name="targetEmail">
+            <label for="floatingInput">Email</label>
+          </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Write mobile no. here" name="targetNumber">
+            <label for="floatingInput">Mobile no.</label>
+          </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Write adhare no. here" name="targetAdhar">
+            <label for="floatingInput">Adhaar No.</label>
+          </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput"placeholder="Write address here" name="targetAddress">
+            <label for="floatingInput">Address</label>
+          </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+
+    <%- include('partials/footer'); -%>

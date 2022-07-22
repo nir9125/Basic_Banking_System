@@ -1,0 +1,82 @@
+<%- include('partials/header'); -%>
+
+    <h1 class="text-center m6 mb-3">Manager Detail</h1>
+    <table class="table table-striped table-hover bgColour ">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile No</th>
+                <th scope="col">Adhare No</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-capitalize">
+                    pradum kumar dubey
+                </td>
+                <td>
+                    <% innerObject.forEach((element)=>{ %>
+                        <% if (element.active==true){ %>
+                            &#x20B9;<%= element.lastTransfer %>
+                                <% }}) %>
+                </td>
+                <td>
+                    pradumkumardubey@gmail.com
+                </td>
+                <td>
+                    8318661938
+                </td>
+                <td>
+                    ABCD1234
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center mt-2 mb-3">
+        <a href="/transfer"><button type="button" class="btn btn-outline-dark btn-lg">transfer</button></a>
+        <a href="/history"><button type="button" class="btn btn-outline-dark btn-lg">View all custumer transfer</button></a>
+    </div>
+
+    <h1 class="text-center mt-5 mb-4">Manager Transfer Detail</h1>
+    <table class="table table-striped css-serial table-hover bgColour">
+        <thead>
+            <tr>
+                <th scope="col">S no.</th>
+                <th scope="col">Transfered Amount</th>
+                <th scope="col">To Account</th>
+                <th scope="col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+
+            <% innerObject.forEach((elementn)=>{ %>
+                <tr>
+                    <% if (elementn.active==false){ %>
+                        <td></td>
+                        <td>
+                            &#x20B9;<%= elementn.lastTransfer %>
+                        </td>
+                        <td>
+                            <%= elementn.name %>
+                        </td>
+                        <td>
+                            <%= elementn.allupdatedTime %>
+                        </td>
+                        <% } %>
+                    </tr>
+                            <% }) %>
+        </tbody>
+    </table>
+
+
+
+
+
+
+    <%- include('partials/footer'); -%>

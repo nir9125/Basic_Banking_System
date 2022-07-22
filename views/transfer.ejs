@@ -1,0 +1,23 @@
+<%- include('partials/header'); -%>
+    <h1 class="text-center mt-4 mb-3">Transfer Money</h1>
+    <!-- <h1>Transfer Money</h1> -->
+    <form action="/transfer" method="post">
+        <div class="mb-3">
+            <label for="disabledTextInput1" class="form-label">NAME</label>
+            <input type="text" id="disabledTextInput1" class="form-control" placeholder="Write Name here"
+                name="targetName">
+        </div>
+        <div class="mb-3">
+            <label for="disabledTextInput2" class="form-label">Account Numner</label>
+            <input type="text" id="disabledTextInput2" class="form-control" placeholder="Write Amount here"
+                name="targetId">
+        </div>
+        <div class="mb-3">
+            <label for="disabledTextInput3" class="form-label">Amount to Transfer</label>
+            <input type="text" id="disabledTextInput3" class="form-control" placeholder="Write Amount here"
+                name="targetMoney">
+        </div>
+        <button type="submit" class="btn btn-primary">Transfer</button>
+    </form>
+
+    <%- include('partials/footer'); -%>
